@@ -12,5 +12,5 @@ COPY ./nanovllm ./nanovllm
 
 RUN pip install --no-cache-dir -r requirements.in
 
-ENTRYPOINT ["hfendpoint"]
-CMD ["python", "worker.py"]
+EXPOSE 80
+ENTRYPOINT ["hfendpoint", "--port", "80", "python", "worker.py"]
