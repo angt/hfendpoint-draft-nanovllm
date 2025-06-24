@@ -1,0 +1,5 @@
+hfendpoint @ git+https://github.com/angt/hfendpoint-draft@v0.3.0#subdirectory=bindings/python
+huggingface_hub[hf_xet]
+transformers
+flash-attn
+xxhash
