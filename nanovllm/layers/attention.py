@@ -61,9 +61,9 @@ class Attention(nn.Module):
         k = k.view(-1, self.num_kv_heads, self.head_dim)
         v = v.view(-1, self.num_kv_heads, self.head_dim)
         context = get_context()
-        k_cache = self.k_cache
-        v_cache = self.v_cache
-        store_kvcache(k, v, k_cache, v_cache, context.slot_mapping)
+        k_cache, v_cache = self.k_cache, self.v_cache
+        if k_cache.numel() and v_cache.numel():
+            store_kvcache(k, v, k_cache, v_cache, context.slot_mapping)
         if context.is_prefill:
             if context.block_tables is not None:    # prefix cache
                 k, v = k_cache, v_cache
