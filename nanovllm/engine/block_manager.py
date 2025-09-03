@@ -26,7 +26,6 @@ class Block:
 class BlockManager:
 
     def __init__(self, num_blocks: int, block_size: int):
-        assert num_blocks > 0
         self.block_size = block_size
         self.blocks: list[Block] = [Block(i) for i in range(num_blocks)]
         self.hash_to_block_id: dict[int, int] = dict()
